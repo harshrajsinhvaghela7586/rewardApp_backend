@@ -1,0 +1,152 @@
+# ===========================
+# Node.js
+# ===========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ===========================
+# Environment Variables
+# ===========================
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.staging
+.env.production
+.env.production.local
+
+# ===========================
+# Build Output
+# ===========================
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# ===========================
+# Logs
+# ===========================
+logs/
+*.log
+*.log.*
+log/
+
+# ===========================
+# uploads / temp files
+# ===========================
+uploads/
+temp/
+tmp/
+public/uploads/
+
+# ===========================
+# OS Generated Files
+# ===========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===========================
+# IDE / Editor
+# ===========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+
+# ===========================
+# Testing & Coverage
+# ===========================
+coverage/
+.nyc_output/
+*.lcov
+jest.config.local.js
+
+# ===========================
+# Cache
+# ===========================
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# ===========================
+# Database
+# ===========================
+*.sqlite
+*.sqlite3
+*.db
+data/
+
+# ===========================
+# SSL / Certificates
+# ===========================
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+
+# ===========================
+# Secret / Config Files
+# ===========================
+secrets/
+config/local.js
+config/production.js
+serviceAccountKey.json
+firebase-adminsdk*.json
+google-credentials*.json
+
+# ===========================
+# Docker
+# ===========================
+.dockerignore
+docker-compose.override.yml
+
+# ===========================
+# PM2
+# ===========================
+ecosystem.config.js
+.pm2/
+
+# ===========================
+# Optional: Flutter (agar monorepo hai)
+# ===========================
+*.class
+*.flx
+*.dex
+*.apk
+*.aab
+*.ap_
+*.dSYM/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+flutter_export_environment.sh

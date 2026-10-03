@@ -19,6 +19,7 @@ app.use(cors({
     const allowed = [
       process.env.FRONTEND_URL    || 'http://localhost:3000',
       process.env.ADMIN_PANEL_URL || 'http://localhost:3001',
+      https://reward-app-admin.vercel.app
     ];
     if (!origin || allowed.includes(origin)) {
       callback(null, true);

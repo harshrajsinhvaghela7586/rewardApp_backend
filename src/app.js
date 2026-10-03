@@ -14,23 +14,32 @@ const app = express();
 app.use(helmet());
 
 // ── CORS ───────────────────────────────────────────────────────
-app.use(cors({
-  origin: function (origin, callback) {
-    const allowed = [
-      process.env.FRONTEND_URL    || 'http://localhost:3000',
-      process.env.ADMIN_PANEL_URL || 'http://localhost:3001',
-      https://reward-app-admin.vercel.app
-    ];
-    if (!origin || allowed.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      const allowed = [
+        process.env.FRONTEND_URL || 'http://localhost:3000',
+        process.env.ADMIN_PANEL_URL || 'http://localhost:3001',
+        'https://reward-app-admin.vercel.app',
+      ];
+
+      if (!origin || allowed.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+    ],
+
+    credentials: true,
+  })
+);
 
 // ── Logger ─────────────────────────────────────────────────────
 if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));

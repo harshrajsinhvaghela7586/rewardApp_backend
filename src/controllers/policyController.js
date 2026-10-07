@@ -130,3 +130,28 @@ exports.myScratchCardHistory = async (req, res, next) => {
     next(err);
   }
 };
+
+// policyController.js
+exports.downloadMyPolicy = async (req, res, next) => {
+  try {
+    const policy = await Policy.findOne({ user: req.user._id });
+    if (!policy?.policyFileUrl) {
+      return res.status(404).json({ message: 'Policy document not found' });
+    }
+
+    const upstream = await fetch(policy.policyFileUrl);
+    if (!upstream.ok) {
+      return res.status(502).json({ message: 'Unable to fetch document' });
+    }
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader(
+      'Content-Disposition',
+      `attachment; filename="Policy-${policy.policyNumber || 'document'}.pdf"`
+    );
+
+    res.send(Buffer.from(await upstream.arrayBuffer()));
+  } catch (err) {
+    next(err);
+  }
+};
